@@ -1,0 +1,101 @@
+<h1>Service Cart</h1>
+
+<br><br>
+<h2>Find your specific product</h2>
+<div >
+  <tr>
+    <th><label for = "id">For find your product : </label></th>
+    <th><input type="text" placeholder="Enter your Product id" id = "id" [(ngModel)] = "num" ></th>
+  </tr>
+  <div *ngIf = "num" >
+    <tr>
+      <td>product name  </td>
+      <td> {{specific.id}}</td>
+    </tr>
+    <tr>
+      <td>product Id  </td>
+      <td>{{specific.name}}</td>
+    </tr>
+    <tr>
+      <td>User Id  </td>
+      <td>{{specific.quantity}}  </td>
+    </tr>
+    <tr>
+      <td>User Id  </td>
+      <td>{{specific.price}}  </td>
+    </tr>
+    <tr>
+      <td>order completed : </td>
+      <td>{{specific.image}}</td>
+    </tr>
+  </div>
+
+  <tr >
+    <td><button class="btn btn-dark" *ngIf = "num"  (click) = "getSpecificObj(num)"  >Get product by id</button></td>
+  </tr>
+</div>
+
+<br><br>
+<h2>Create product for wishlist from us</h2>
+<table>
+  <tr>
+    <td > <label for="id">id :</label></td>
+    <td><input type="text" id="id" [(ngModel)]="obj.id" ></td>
+  </tr>
+
+  <tr>
+    <td > <label for="name">name :</label></td>
+    <td><input type="text" id="name" [(ngModel)]="obj.name" ></td>
+  </tr>
+  <tr>
+    <td > <label for="quantity">quantity :</label></td>
+    <td><input type="text" id="quantity" [(ngModel)]="obj.quantity" ></td>
+  </tr>
+  <tr>
+    <td > <label for="quantity">price :</label></td>
+    <td><input type="text" id="price" [(ngModel)]="obj.price" ></td>
+  </tr>
+
+  <tr>
+    <td > <label for="image">image :</label></td>
+    <td><input type="text" id="image" [(ngModel)]="obj.image" ></td>
+  </tr>
+  <button (click) = "createObj(obj)">create</button>
+
+</table>
+
+<br><br>
+<h2>Your all product</h2>
+<h5>you can remove and update any product if you want</h5>
+
+<div *ngFor = "let item of items">
+
+  <div><h5>product :  {{item.id}}</h5></div>
+  <div>{{item.name}}</div>
+  <div>{{item.quantity}}</div>
+  <div>{{item.price}}</div>
+  <div><img style="width: 200px; height: 200px; margin-bottom: 5px;" [src]= item.image ></div>
+<div><button (click) = "deleteObj(item.id)">remove above value</button></div>
+<div><p><b>for update quantity order, click 'update'</b></p></div>
+<div>  <button (click) = "chack = item.id "  >update</button></div>
+
+
+  <div *ngIf= "chack == item.id"  >
+    <table >
+    <tr>
+      <td > <label>name</label></td>
+      <td><label >{{item.name}}</label></td>
+    </tr>
+    <tr>
+      <td > <label for="quantity1">quantity</label></td>
+      <td> <input type="text" id = "quantity1"[(ngModel)]="objUpdate.quantity"></td>
+    </tr>
+    <tr>
+  </table>
+    <button (click) = "updateObj(item.id,objUpdate)">update object</button>
+    <button (click) = "chack = '' "> close window </button>
+  </div>
+  <br>  <br>
+
+
+</div>

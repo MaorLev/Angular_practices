@@ -1,0 +1,151 @@
+
+<h2>Product Details</h2>
+
+
+
+<table>
+  <tr>
+    <!-- <td><label for="product">product</label> </td>
+    <td><input type="text" id="product" [(ngModel)]="product.product" > </td> -->
+    <td><label for="product">product</label></td>
+    <td>
+      <select type="text" id="product" [(ngModel)]="product.product" >
+    <option value="usb">Usb</option>
+    <option value="stand">Stand</option>
+    <option value="headphones">Headphones</option>
+    </select>
+
+    </td>
+  </tr>
+  <tr>
+    <td > <label for="price">price</label></td>
+    <td><input type="text" id="price" [(ngModel)]="product.price" ></td>
+  </tr>
+  <tr>
+    <td><label>image</label></td>
+    <td>
+    <input type="radio" id="Usb"  name="productImg" value="usb" [(ngModel)]="product.image">
+    <label for="Usb">Usb</label><br>
+    <input type="radio" id="Stand"  name="productImg" value="Stand" [(ngModel)]="product.image">
+    <label for="img">Stand</label><br>
+    <input type="radio" id="Headphones" name="productImg" value="headphones" [(ngModel)]="product.image">
+    <label for="img">Headphones</label>
+    <br>
+
+    </td>
+  </tr>
+
+  <tr>
+    <td > <label for="active">IsActive</label></td>
+    <td><input type="checkbox" id="active" name="active" value="Active" [(ngModel)]="product.IsShow" ></td>
+
+  </tr>
+  <tr>
+    <td > <label for="desc">descripation :</label></td>
+    <td><textarea id="desc"  name="descripation" rows="3" cols="20" [(ngModel)]="product.descripation">
+      </textarea>
+    </td>
+
+  </tr>
+  <tr>
+    <td> <input type="submit" (click)="onAddToItems()"  value="add product" ></td>
+    <td> <button (click)="onClearitems()">clear</button> </td>
+  </tr>
+
+</table>
+<!-- <button (click)="onAddToItems()">add product</button> -->
+<!-- <button (click)="onGetItems()">get products</button> -->
+<!-- <button (click)="onClearitems()">clear</button> -->
+
+
+<div *ngFor="let item of itemsComponnent">
+
+  <span>{{ item.product }}</span><br>
+  <span>{{ item.price }} </span><br>
+  <span>{{ item.image }} </span><br>
+  <span>{{ item.descripation }}</span><br>
+  <span>{{ item.IsShow }}</span><br>
+  <button (click)="onRemoveValueByIndex(item)">remove Value By Index</button>
+
+
+</div>
+
+
+
+<!-- <div>
+  <h1>list of all products us</h1>
+</div>
+<div>
+<ul>
+  <li>
+      <div>
+       <h4>cover</h4>
+       <span>
+          <h5>details :</h5>
+          <p>
+              Silicone Liquid Soft Shockproof Case Cover For Samsung Galaxy S20 S10 S9 S8 Plus                </p>
+      </span>
+      <img src="https://img.mysail.shop/uploader/c57bf7bd54cd81a2a16313ec8a768849.jpg" alt="cover" >
+  </div>
+  </li>
+  <li>
+      <div>
+       <h4>Usb cable</h4>
+       <span>
+          <h5>details :</h5>
+          <p>
+              1M 2M 3M Long Micro USB Data Sync Charger Cable Lead For Samsung Android Phones                </p>
+      </span>
+      <img src="https://img.mysail.shop/uploader/1e3952e40aa1bcb7ea9d7bde9620afe2.jpg" alt="Usb" >
+  </div>
+  </li>
+  <li>
+      <div>
+       <h4>Stand for laptop</h4>
+       <span>
+          <h5>details :</h5>
+          <p>
+              Laptop Table Stand Desk Tray Cooling Holder Adjustable 360° Rotating Swivel Base
+          </p>
+      </span>
+      <img src="https://assets.kogan.com/files/product/2020/KALHTALPSDA/KALHTALPSDA_hero_2.jpg?auto=webp&canvas=753%2C502&fit=bounds&height=502&quality=75&width=753" alt="stand" >
+  </div>
+  </li>
+  <li>
+      <div>
+       <h4>Hard Drive HDD</h4>
+       <span>
+           <h5>details :</h5>
+           <p>
+              UGREEN HDD Enclosure 2.5" Inch Sata USB 3.0 Hard Drive HDD Case External Laptop
+           </p>
+       </span>
+      <img src="https://www.ivory.co.il/files/catalog/org/1595853029p29Fp.jpg" alt="Hard Drive" >
+  </div>
+  </li>
+  <li>
+      <div>
+       <h4>Camera</h4>
+       <span>
+          <h5>details :</h5>
+          <p>
+              Xiaomi Mi IP Security Camera WIFI Smart Home 1080P Outdoor Indoor 2 Way Talk New
+          </p>
+      </span>
+      <img src="https://img.ksp.co.il/item/122321/b_1.jpg?noCash" alt="Camera" >
+  </div>
+  </li>
+  <li>
+      <div>
+       <h4>Gaming Headset</h4>
+       <span>
+          <h5>details :</h5>
+          <p>
+              3.5mm Gaming Headset Mic LED Headphones Stereo Bass Surround For PC Xbox One PS4
+          </p>
+      </span>
+      <img src="https://i.ebayimg.com/images/g/H48AAOSwn2NfIjUr/s-l1600.jpg" alt="Gaming Headset" >
+  </div>
+  </li>
+</ul>
+</div> -->

@@ -1,0 +1,25 @@
+<div class="frame first">
+  <h1>parent works!</h1>
+  <div>
+<label for="id" >write text from father to children : </label><br>
+<input type="text" id="id"  [(ngModel)]="sendChildData" >
+  </div>
+  <mat-slider min="1"  disabled:false max="100" step="1" value="1"></mat-slider>
+
+
+  <!-- <app-child #sun [parentData] = "sendChildData" (newItemEvent)="addItem($event)" >
+
+  </app-child>
+  <ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul> -->
+  <app-child #sun [parentData] = "sendChildData" (eventChild) = "onShareOutput($event)" >
+
+  </app-child>
+
+</div>
+<div>
+  <label>field for send</label>
+  <input type="text"  [(ngModel)]="sendData" >
+  <button (click) = SharedData()  >shared Data</button>
+</div>

@@ -1,0 +1,43 @@
+<h1> My Purchase </h1>
+<br>
+<div >
+  <tr>
+    <th><label for = "id">Enter product id : </label></th>
+    <th><input type="text" placeholder="For unit product" id = "id" [(ngModel)] = "number" ></th>
+  </tr>
+  <div *ngIf = "number" >
+
+    <tr>
+      <td>product name  </td>
+      <td> {{todoitem.title}}</td>
+    </tr>
+    <tr>
+      <td>product Id  </td>
+      <td>{{todoitem.id}}</td>
+    </tr>
+    <tr>
+      <td>User Id  </td>
+      <td>{{todoitem.userId}}  </td>
+    </tr>
+    <tr>
+      <td>order completed : </td>
+      <td>{{todoitem.completed}}</td>
+    </tr>
+  </div>
+
+  <tr >
+    <td><button class="btn btn-secondary" *ngIf = "!number" (click) = "getAllItems()" >get all purchase</button></td>
+    <td><button class="btn btn-dark" *ngIf = "number"  (click) = "getSpecificItems(number)"  >Get product by id</button></td>
+  </tr>
+
+
+</div>
+
+<br>
+<div *ngFor = "let item of todo">
+  <div>object id : {{item.id}}</div>
+  <div>{{item.title}}</div>
+  <div>{{item.completed}}</div>
+  <div>{{item.userId}}, </div><br>
+</div>
+

@@ -1,0 +1,150 @@
+<p>user works!</p>
+<br><br>
+<h2>Find out information about user</h2>
+<div >
+  <tr>
+    <th><label for = "id">Choose User mail for found information about user</label></th>
+     <!-- <th><input type="text" placeholder="Enter your User id" id = "id" [(ngModel)] = "num" ></th> -->
+
+
+
+  </tr>
+  <div>
+  <tr>
+    <th>
+      <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="text"
+
+               placeholder="Pick one"
+               aria-label="Email"
+               id="id"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto"
+               [(ngModel)] = "num">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </th>
+  </tr>
+  <div *ngIf = "num" >
+    <tr>
+      <td>User Id  </td>
+      <td> {{user.Id}}</td>
+    </tr>
+    <tr>
+      <td>First name  </td>
+      <td>{{user.FirstName}}</td>
+    </tr>
+    <tr>
+      <td>Last name  </td>
+      <td>{{user.LastName}}  </td>
+    </tr>
+    <tr>
+      <td>Mail  </td>
+      <td>{{user.Email}}  </td>
+    </tr>
+    <tr>
+      <td>Phone  </td>
+      <td>{{user.Phone}}</td>
+    </tr>
+    <tr>
+      <td>Password  </td>
+      <td>{{user.Password}}</td>
+    </tr>
+  </div>
+
+  <tr >
+    <td><button class="btn btn-dark" *ngIf = "num"  (click) = "onGetSingleUser(num)"  >Get User by mail</button></td>
+  </tr>
+</div>
+</div>
+<br><br>
+<h2>Create User  </h2>
+<table>
+  <!-- <tr>
+    <td > <label for="id">id :</label></td>
+    <td><input type="text" id="id" [(ngModel)]="obj.Id" ></td>
+  </tr> -->
+
+  <tr>
+    <td > <label for="name">FirstName :</label></td>
+    <td><input type="text" id="name" [(ngModel)]="obj.FirstName" ></td>
+  </tr>
+  <tr>
+    <td > <label for="quantity">LastName :</label></td>
+    <td><input type="text" id="quantity" [(ngModel)]="obj.LastName" ></td>
+  </tr>
+  <tr>
+    <td > <label for="quantity">Email :</label></td>
+    <td><input type="text" id="price" [(ngModel)]="obj.Email" ></td>
+  </tr>
+
+  <tr>
+    <td > <label for="phone">phone :</label></td>
+    <td><input type="text" id="phone" [(ngModel)]="obj.Phone" ></td>
+  </tr>
+  <tr>
+    <td > <label for="pass">password :</label></td>
+    <td><input type="text" id="pass" [(ngModel)]="obj.Password" ></td>
+  </tr>
+
+  <button (click) = "onCreateUser(obj)">Create</button>
+
+</table>
+
+<br><br>
+<h2>All users</h2>
+<h5>you can remove and update any user if you want</h5>
+
+<div *ngFor = "let u of users">
+
+  <div><h5>Id :  {{u.Id}}</h5></div>
+  <div>First name : {{u.FirstName}}</div>
+  <div>Last name : {{u.LastName}}</div>
+  <div>Mail : {{u.Email}}</div>
+  <div>Phone : {{u.Phone}}</div>
+  <div>Password : {{u.Password}}</div>
+
+<div><button (click) = "onDeleteUser(u.Id)">remove above User</button></div>
+<div><p><b>For update above user phone, click 'update'</b></p></div>
+<div>  <button (click) = "chack = u.Id "  >Update</button></div>
+
+
+  <div *ngIf= "chack == u.Id"  >
+    <table >
+    <tr>
+      <td > <label>Full name : </label></td>
+      <td><label >{{u.FirstName}} {{u.LastName}}</label></td>
+    </tr>
+    <tr>
+      <td > <label for="quantity1">Phone</label></td>
+      <td> <input type="text" id = "quantity1"[(ngModel)]="userUpdate.Phone"></td>
+    </tr>
+    <tr>
+  </table>
+    <button (click) = "onUpdateUser(u.Id,userUpdate,u)">Update user phone</button>
+    <button (click) = "chack = '' "> close window </button>
+  </div>
+  <br>  <br>
+
+
+</div>
+<label id="example-radio-group-label">Pick your favorite season</label>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="favoriteSeason">
+  <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+    {{season}}
+  </mat-radio-button>
+</mat-radio-group>
+<div>Your favorite season is: {{favoriteSeason}}</div>
+
+
